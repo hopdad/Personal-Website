@@ -14,7 +14,7 @@ const projects = defineCollection({
       liveUrl: z.string().url().optional(),
       githubUrl: z.string().url().optional(),
       completedDate: z.date(),
-      category: z.enum(['web', 'mobile', 'desktop', 'tools']),
+      category: z.enum(['web', 'mobile', 'desktop', 'tools', 'hardware', 'ml', 'engineering']),
     }),
 });
 

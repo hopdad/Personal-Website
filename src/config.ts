@@ -1,20 +1,19 @@
 // Single source of truth for site-wide content. Swap placeholders with real values.
 export const site = {
   name: 'Derrick Hopson',
-  title: 'Creative Problem Solver',
+  title: 'Engineer & Builder',
   tagline:
-    'I design and build practical software \u2014 from tidy web apps to problem-solving tools. Currently focused on the outdoors, climate, and craft.',
+    'Building solutions through code and hands-on engineering',
   email: 'hopsonderrick@gmail.com',
   description:
-    'Personal portfolio of Derrick \u2014 focused on clean, maintainable, human-centered projects.',
+    'Portfolio of Derrick Hopson — engineer and developer with 15+ years of hands-on problem solving, specializing in Python, machine learning, and process optimization.',
   social: {
     github: 'https://github.com/hopdad',
-    linkedin: 'https://www.linkedin.com/in/your-handle',
+    linkedin: 'https://www.linkedin.com/in/REPLACE-ME', // TODO: replace with actual LinkedIn URL
   },
   nav: [
     { href: '/projects', label: 'Projects' },
     { href: '/blog', label: 'Blog' },
-    { href: '/resume', label: 'Resume' },
     { href: '/#contact', label: 'Contact' },
   ],
 };

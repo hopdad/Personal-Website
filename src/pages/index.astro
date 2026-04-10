@@ -12,14 +12,14 @@ const featured = (await getCollection('projects', ({ data }) => data.featured)).
 );
 
 const skills = [
-  'TypeScript',
-  'Astro',
-  'React',
-  'Node',
-  'Go',
-  'Postgres',
-  'Tailwind',
-  'Design systems',
+  'Python',
+  'JavaScript',
+  'Machine Learning',
+  'FastAPI',
+  'Supabase',
+  'Electronics',
+  'Process Optimization',
+  'Git',
 ];
 
 const personJsonLd = {
@@ -52,17 +52,22 @@ const personJsonLd = {
     <h2 class="mb-6 font-display text-heading-lg">About</h2>
     <div class="prose-site max-w-3xl">
       <p>
-        I'm a software developer who likes building things that are small, sharp, and maintainable.
-        My work tends to sit where the web, tools, and the outdoors overlap — anything from static
-        sites to CLIs to maps.
+        Over 15 years solving operational problems at one of Michigan's largest distribution
+        centers, I've developed a systematic approach to breaking down complex challenges. What
+        started as optimizing warehouse workflows has evolved into building software solutions,
+        from ML-powered fishing platforms to custom electronics projects.
       </p>
       <p>
-        I care about accessibility, clear writing, and craft. I'd rather ship one solid feature
-        than ten half-finished ones.
+        Whether I'm debugging a Python ML pipeline or rebuilding an ATV engine, the approach is
+        the same: understand the problem, plan the solution, and execute with precision. I combine
+        traditional hands-on engineering skills with modern development practices to create
+        solutions that actually work in the real world.
       </p>
       <p>
-        Currently focused on climate-adjacent projects and growing my side projects into something
-        useful.
+        I treat AI as a sophisticated thinking partner, not a replacement for engineering judgment.
+        It's a force multiplier that accelerates learning, improves design quality, and helps me
+        tackle problems I couldn't solve alone — from designing FishCast's ML architecture to
+        systematically debugging complex multi-layered technical issues.
       </p>
     </div>
     <h3 class="mt-10 font-display text-heading-md">Working with</h3>
@@ -78,8 +83,9 @@ const personJsonLd = {
   <section id="contact" class="container-content pb-section md:pb-section-lg">
     <h2 class="mb-4 font-display text-heading-lg">Get in touch</h2>
     <p class="max-w-2xl text-body-lg" style="color: var(--text-muted);">
-      The fastest way to reach me is email. I'm also around on GitHub and LinkedIn. I try to reply
-      within a couple of days.
+      Ready to solve a problem together? Whether it's building something new, optimizing an
+      existing process, or tackling a technical challenge, I'd love to hear about what you're
+      working on.
     </p>
     <div class="mt-8 flex flex-wrap items-center gap-6">
       <a href={`mailto:${site.email}`} class="btn btn-primary">{site.email}</a>

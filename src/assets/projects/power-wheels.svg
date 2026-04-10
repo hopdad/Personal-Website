@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="ground" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#F4EFE3"/>
+      <stop offset="1" stop-color="#E8E0CD"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#ground)"/>
+  <!-- Vehicle body -->
+  <rect x="140" y="180" width="320" height="100" rx="12" fill="#C75B30"/>
+  <rect x="180" y="150" width="200" height="80" rx="8" fill="#C75B30"/>
+  <!-- Windshield -->
+  <rect x="200" y="160" width="100" height="50" rx="4" fill="#F4EFE3" opacity="0.6"/>
+  <!-- Wheels -->
+  <circle cx="200" cy="300" r="40" fill="#1B3A4B"/>
+  <circle cx="200" cy="300" r="20" fill="#445158"/>
+  <circle cx="400" cy="300" r="40" fill="#1B3A4B"/>
+  <circle cx="400" cy="300" r="20" fill="#445158"/>
+  <!-- Lightning bolt (power/electronics) -->
+  <polygon points="490,80 510,130 495,130 515,180 480,120 498,120 478,80" fill="#C75B30"/>
+  <!-- Ground line -->
+  <line x1="0" y1="340" x2="600" y2="340" stroke="#445158" stroke-width="2" opacity="0.3"/>
+  <text x="40" y="60" font-family="Georgia, serif" font-size="28" fill="#1B3A4B" font-weight="600">Power Wheels</text>
+</svg>
