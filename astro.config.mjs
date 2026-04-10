@@ -7,7 +7,6 @@ import mdx from '@astrojs/mdx';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://hopdad.github.io',
-  base: '/Personal-Website',
   trailingSlash: 'ignore',
   output: 'static',
   integrations: [tailwind({ applyBaseStyles: false }), sitemap(), mdx()],

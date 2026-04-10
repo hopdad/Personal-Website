@@ -51,10 +51,9 @@ src/
 
 ## Deployment
 
-The site deploys to GitHub Pages on every push to `main`. It builds to
-`https://hopdad.github.io/Personal-Website/` because this is a *project* site —
-`astro.config.mjs` sets `base: '/Personal-Website'`. If the repo is ever renamed
-to `hopdad.github.io` (user site) or a custom domain is added, remove `base`.
+The site deploys to GitHub Pages on every push to `main`. The repo is
+`hopdad.github.io` (user site), so it serves from `https://hopdad.github.io/`
+with no base path.
 
 Enable Pages in the repo's Settings → Pages → Source: GitHub Actions.
 
