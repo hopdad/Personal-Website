@@ -1,12 +1,12 @@
 // Single source of truth for site-wide content. Swap placeholders with real values.
 export const site = {
-  name: 'Your Name',
-  title: 'Software Developer',
+  name: 'Derrick Hopson',
+  title: 'Creative Problem Solver',
   tagline:
     'I design and build practical software \u2014 from tidy web apps to problem-solving tools. Currently focused on the outdoors, climate, and craft.',
-  email: 'hello@example.com',
+  email: 'hopsonderrick@gmail.com',
   description:
-    'Personal portfolio of Your Name \u2014 software developer focused on clean, maintainable, human-centered projects.',
+    'Personal portfolio of Derrick \u2014 focused on clean, maintainable, human-centered projects.',
   social: {
     github: 'https://github.com/hopdad',
     linkedin: 'https://www.linkedin.com/in/your-handle',
