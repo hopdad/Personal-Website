@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { url } from '@/lib/url';
+
+const posts = (await getCollection('blog', ({ data }) => import.meta.env.PROD ? !data.draft : true))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Blog" description="Notes on projects, tools, and craft.">
+  <section class="container-content pb-section pt-16 md:pb-section-lg md:pt-24">
+    <p class="mb-4 text-caption uppercase tracking-widest" style="color: var(--accent);">
+      Writing
+    </p>
+    <h1 class="font-display text-display-lg font-semibold">Blog</h1>
+    <p class="mt-6 max-w-2xl text-body-lg" style="color: var(--text-muted);">
+      Occasional notes on projects, tools, and things I'm learning.
+    </p>
+
+    <ul class="mt-14 divide-y" style="border-color: var(--border);">
+      {posts.map((post) => (
+        <li class="py-6">
+          <a href={url(`/blog/${post.slug}`)} class="group block">
+            <time
+              class="text-caption uppercase tracking-widest"
+              style="color: var(--text-muted);"
+              datetime={post.data.pubDate.toISOString()}
+            >
+              {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </time>
+            <h2 class="mt-2 font-display text-heading-md group-hover:underline decoration-[color:var(--accent)] underline-offset-4">
+              {post.data.title}
+            </h2>
+            <p class="mt-2 text-body" style="color: var(--text-muted);">{post.data.description}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  ul { border-top: 1px solid var(--border); }
+  li { border-bottom: 1px solid var(--border); }
+</style>
