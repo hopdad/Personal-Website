@@ -1,0 +1,18 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { url } from '@/lib/url';
+---
+
+<BaseLayout title="Not found" description="That page doesn't exist.">
+  <section class="container-content flex min-h-[60vh] flex-col justify-center pb-section pt-16">
+    <p class="text-caption uppercase tracking-widest" style="color: var(--accent);">404</p>
+    <h1 class="mt-4 font-display text-display-lg font-semibold">Off the trail.</h1>
+    <p class="mt-6 max-w-xl text-body-lg" style="color: var(--text-muted);">
+      That page doesn't exist — or it may have moved. Let's get you back.
+    </p>
+    <div class="mt-10 flex flex-wrap gap-3">
+      <a href={url('/')} class="btn btn-primary">Home</a>
+      <a href={url('/projects')} class="btn btn-outline">Projects</a>
+    </div>
+  </section>
+</BaseLayout>

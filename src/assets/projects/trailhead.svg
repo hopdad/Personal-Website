@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#F4EFE3"/>
+      <stop offset="1" stop-color="#E8E0CD"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#sky)"/>
+  <polygon points="0,400 120,180 240,300 360,140 480,260 600,200 600,400" fill="#3D5A3A"/>
+  <polygon points="0,400 160,260 300,340 440,220 600,320 600,400" fill="#1B3A4B"/>
+  <circle cx="480" cy="110" r="32" fill="#C75B30"/>
+  <text x="40" y="60" font-family="Georgia, serif" font-size="28" fill="#1B3A4B" font-weight="600">Trailhead</text>
+</svg>

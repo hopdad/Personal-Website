@@ -1,0 +1,18 @@
+---
+import { site } from '@/config';
+import { url } from '@/lib/url';
+---
+
+<section class="container-content pb-section pt-16 md:pb-section-lg md:pt-28">
+  <p class="mb-4 text-caption uppercase tracking-widest" style="color: var(--accent);">
+    {site.title}
+  </p>
+  <h1 class="font-display text-display-xl font-semibold">{site.name}</h1>
+  <p class="mt-6 max-w-2xl text-body-lg" style="color: var(--text-muted);">
+    {site.tagline}
+  </p>
+  <div class="mt-10 flex flex-wrap gap-3">
+    <a href={url('/projects')} class="btn btn-primary">View Projects</a>
+    <a href="#contact" class="btn btn-outline">Contact</a>
+  </div>
+</section>

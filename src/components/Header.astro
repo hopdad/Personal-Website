@@ -1,0 +1,89 @@
+---
+import { site } from '@/config';
+import { url } from '@/lib/url';
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<header
+  class="sticky top-0 z-40 w-full border-b backdrop-blur"
+  style="background-color: color-mix(in srgb, var(--bg) 85%, transparent); border-color: var(--border);"
+>
+  <div class="container-content flex h-16 items-center justify-between gap-6">
+    <a href={url('/')} class="font-display text-lg font-semibold tracking-tight">
+      {site.name}
+    </a>
+
+    <nav aria-label="Primary" class="hidden items-center gap-8 md:flex">
+      {
+        site.nav.map((item) => (
+          <a
+            href={url(item.href)}
+            class="link-underline text-sm"
+            style="color: var(--text);"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <ThemeToggle />
+    </nav>
+
+    <div class="flex items-center gap-3 md:hidden">
+      <ThemeToggle />
+      <details class="relative">
+        <summary
+          class="list-none inline-flex h-9 w-9 items-center justify-center rounded-btn border"
+          style="border-color: var(--border);"
+          aria-label="Open menu"
+        >
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </summary>
+        <nav
+          aria-label="Mobile"
+          class="absolute right-0 mt-2 w-48 rounded-card border p-2 shadow-lg"
+          style="background-color: var(--bg); border-color: var(--border);"
+        >
+          {
+            site.nav.map((item) => (
+              <a
+                href={url(item.href)}
+                class="block rounded px-3 py-2 text-sm hover:underline"
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<style>
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease;
+  }
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after {
+    transform: scaleX(1);
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

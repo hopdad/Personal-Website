@@ -1,0 +1,111 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/Hero.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import SocialLinks from '@/components/SocialLinks.astro';
+import { site } from '@/config';
+import { url } from '@/lib/url';
+
+const featured = (await getCollection('projects', ({ data }) => data.featured)).sort(
+  (a, b) => b.data.completedDate.valueOf() - a.data.completedDate.valueOf()
+);
+
+const skills = [
+  'TypeScript',
+  'Astro',
+  'React',
+  'Node',
+  'Go',
+  'Postgres',
+  'Tailwind',
+  'Design systems',
+];
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  jobTitle: site.title,
+  email: `mailto:${site.email}`,
+  url: Astro.site?.toString(),
+  sameAs: [site.social.github, site.social.linkedin],
+};
+---
+
+<BaseLayout jsonLd={personJsonLd}>
+  <Hero />
+
+  <section class="container-content pb-section md:pb-section-lg">
+    <div class="mb-10 flex items-end justify-between gap-6">
+      <h2 class="font-display text-heading-lg">Featured projects</h2>
+      <a href={url('/projects')} class="link-underline text-caption uppercase tracking-widest" style="color: var(--accent);">
+        All projects →
+      </a>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2">
+      {featured.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+
+  <section id="about" class="container-content pb-section md:pb-section-lg">
+    <h2 class="mb-6 font-display text-heading-lg">About</h2>
+    <div class="prose-site max-w-3xl">
+      <p>
+        I'm a software developer who likes building things that are small, sharp, and maintainable.
+        My work tends to sit where the web, tools, and the outdoors overlap — anything from static
+        sites to CLIs to maps.
+      </p>
+      <p>
+        I care about accessibility, clear writing, and craft. I'd rather ship one solid feature
+        than ten half-finished ones.
+      </p>
+      <p>
+        Currently focused on climate-adjacent projects and growing my side projects into something
+        useful.
+      </p>
+    </div>
+    <h3 class="mt-10 font-display text-heading-md">Working with</h3>
+    <ul class="mt-4 flex flex-wrap gap-2">
+      {skills.map((s) => (
+        <li class="rounded-btn border px-3 py-1 text-caption" style="border-color: var(--border);">
+          {s}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section id="contact" class="container-content pb-section md:pb-section-lg">
+    <h2 class="mb-4 font-display text-heading-lg">Get in touch</h2>
+    <p class="max-w-2xl text-body-lg" style="color: var(--text-muted);">
+      The fastest way to reach me is email. I'm also around on GitHub and LinkedIn. I try to reply
+      within a couple of days.
+    </p>
+    <div class="mt-8 flex flex-wrap items-center gap-6">
+      <a href={`mailto:${site.email}`} class="btn btn-primary">{site.email}</a>
+      <SocialLinks />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease;
+  }
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after {
+    transform: scaleX(1);
+  }
+</style>

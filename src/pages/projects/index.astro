@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => b.data.completedDate.valueOf() - a.data.completedDate.valueOf()
+);
+---
+
+<BaseLayout
+  title="Projects"
+  description="A selection of projects I've built — web apps, tools, and experiments."
+>
+  <section class="container-content pb-section pt-16 md:pb-section-lg md:pt-24">
+    <p class="mb-4 text-caption uppercase tracking-widest" style="color: var(--accent);">
+      Selected work
+    </p>
+    <h1 class="font-display text-display-lg font-semibold">Projects</h1>
+    <p class="mt-6 max-w-2xl text-body-lg" style="color: var(--text-muted);">
+      Things I've built, shipped, and occasionally broken. Most are open source.
+    </p>
+
+    <div class="mt-14 grid gap-6 sm:grid-cols-2">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+</BaseLayout>
